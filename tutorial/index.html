@@ -1,0 +1,36 @@
+<body>
+<div>
+    <h2>Flink JDBC Connector Example</h2>
+</div>
+
+<div>
+    This is an activator project showcasing use of Flink JDBC Connector.<br/><br/>
+    Here we are using:<br/><br/>
+    <b>Flink</b>: for Flink environment.<br/>
+    <b>MySQL</b>: for database connections.
+</div>
+
+<div>
+    <h2>Pre-Requiste:</h2>
+    <b>MySQL</b> must be installed and running. <br/>
+    For this example we need two database <b>source</b> from which we will copy data and <b>sink</b> in which we will copy data. We need <b>data</b> table in <b>source</b> database with two fields
+    <i>id which is <b>integer</b> and name which is a text or a varchar</i> similarly we need a table <b>mydata</b> table in <b>sink</b> database with same fields as data table.
+
+    <pre>
+        CREATE TABLE source.data(id INT, name TEXT);
+        INSERT INTO TABLE VALUES (1, "Knoldus"),(2, "Knol");
+    </pre>
+
+</div>
+
+<div>
+    <h2>Run Connector</h2>
+    <pre>
+         bin/activator "run-main com.knoldus.FlinkJDBCExample
+    </pre>
+
+    This will copy data from one table to another.
+
+    For any issue please raise a ticket @ <a href="https://github.com/knoldus/flink-jdbc-connector-example/issues">Github Issue</a>
+</div>
+</body>

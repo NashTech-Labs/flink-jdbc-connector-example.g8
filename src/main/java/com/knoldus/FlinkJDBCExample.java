@@ -58,15 +58,16 @@ public class FlinkJDBCExample {
     //Print Transformed DataSet
     transformedSet.print();
 
-    //Define Output Format Builder
     String insertQuery = "INSERT INTO mydata (id, name) values (?, ?)";
+
+    //Define Output Format Builder
     JDBCOutputFormat.JDBCOutputFormatBuilder outputBuilder =
         JDBCOutputFormat.buildJDBCOutputFormat().setDrivername(driverName).setDBUrl(dbURL + sinkDB)
             .setQuery(insertQuery).setSqlTypes(new int[] { Types.INTEGER, Types.VARCHAR })
             .setUsername(dbUser).setPassword(dbPassword);
 
     //Define DataSink
-    source.output(outputBuilder.finish());
+    transformedSet.output(outputBuilder.finish());
 
     //Triggers the program execution.
     environment.execute();
