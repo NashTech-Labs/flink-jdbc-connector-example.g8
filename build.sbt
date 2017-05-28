@@ -1,12 +1,12 @@
-name := """flink-jdbc-connector-example"""
-
-version := "1.0"
-
-scalaVersion := "2.11.6"
-
-libraryDependencies ++= Seq(
-  "org.apache.flink" % "flink-jdbc" % "1.2.0",
-  "org.apache.flink" % "flink-java" % "1.2.0",
-  "mysql" % "mysql-connector-java" % "6.0.6",
-  "org.apache.flink" % "flink-clients_2.11" % "1.2.0"
-)
+// This build is for this Giter8 template.
+// To test the template run `g8` or `g8Test` from the sbt session.
+// See http://www.foundweekends.org/giter8/testing.html#Using+the+Giter8Plugin for more details.
+lazy val root = (project in file(".")).
+  settings(
+    name := "flink-jdbc-connector-example",
+    test in Test := {
+      val _ = (g8Test in Test).toTask("").value
+    },
+    scriptedLaunchOpts ++= List("-Xms1024m", "-Xmx1024m", "-XX:ReservedCodeCacheSize=128m", "-XX:MaxPermSize=256m", "-Xss2m", "-Dfile.encoding=UTF-8"),
+    resolvers += Resolver.url("typesafe", url("http://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
+  )
